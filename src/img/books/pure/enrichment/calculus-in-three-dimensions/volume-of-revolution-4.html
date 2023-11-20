@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html><head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<style>
+
+    body { margin: 0px; overflow: hidden; }
+
+    #menu-container { position: absolute; bottom: 30px; right: 40px; }
+
+    #menu-content { position: absolute; bottom: 0px; right: 0px;
+                    display: none; background-color: #F5F5F5; border-bottom: 1px solid black;
+                    border-right: 1px solid black; border-left: 1px solid black; }
+
+    #menu-content div { border-top: 1px solid black; padding: 10px; white-space: nowrap; }
+  
+</style>
+</head>
+
+<body>
+
+<script src="/nbextensions/threejs/build/three.min.js"></script>
+<script src="/nbextensions/threejs/examples/js/controls/OrbitControls.js"></script>
+<script>
+  if ( !window.THREE ) document.write(' \
+<script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r110/build/three.min.js"><\/script> \
+<script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r110/examples/js/controls/OrbitControls.js"><\/script> \
+            ');
+</script>
+        
+<script>
+
+    var scene = new THREE.Scene();
+
+    var renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor( 0xffffff, 1 );
+    document.body.appendChild( renderer.domElement );
+
+    var options = {"aspect_ratio": [1.0, 1.0, 1.0], "axes": false, "axes_labels": false, "decimals": 2, "frame": false, "projection": "perspective"};
+
+    // When animations are supported by the viewer, the value 'false'
+    // will be replaced with an option set in Python by the user
+    var animate = false; // options.animate;
+
+    var b = [{"x":-0.7853981633974483, "y":-0.024270509831248423, "z":-1.5}, {"x":3.141592653589793, "y":0.1, "z":1.5}]; // bounds
+
+    if ( b[0].x === b[1].x ) {
+        b[0].x -= 1;
+        b[1].x += 1;
+    }
+    if ( b[0].y === b[1].y ) {
+        b[0].y -= 1;
+        b[1].y += 1;
+    }
+    if ( b[0].z === b[1].z ) {
+        b[0].z -= 1;
+        b[1].z += 1;
+    }
+
+    var rRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var xRange = b[1].x - b[0].x;
+    var yRange = b[1].y - b[0].y;
+    var zRange = b[1].z - b[0].z;
+
+    var ar = options.aspect_ratio;
+    var a = [ ar[0], ar[1], ar[2] ]; // aspect multipliers
+    var autoAspect = 2.5;
+    if ( zRange > autoAspect * rRange && a[2] === 1 ) a[2] = autoAspect * rRange / zRange;
+
+    // Distance from (xMid,yMid,zMid) to any corner of the bounding box, after applying aspect_ratio.
+    var midToCorner = Math.sqrt( a[0]*a[0]*xRange*xRange + a[1]*a[1]*yRange*yRange + a[2]*a[2]*zRange*zRange ) / 2;
+
+    var xMid = ( b[0].x + b[1].x ) / 2;
+    var yMid = ( b[0].y + b[1].y ) / 2;
+    var zMid = ( b[0].z + b[1].z ) / 2;
+
+    var box = new THREE.Geometry();
+    box.vertices.push( new THREE.Vector3( a[0]*b[0].x, a[1]*b[0].y, a[2]*b[0].z ) );
+    box.vertices.push( new THREE.Vector3( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) );
+    var boxMesh = new THREE.Line( box );
+    if ( options.frame ) scene.add( new THREE.BoxHelper( boxMesh, 'black' ) );
+
+    if ( options.axes_labels ) {
+
+        var d = options.decimals; // decimals
+        var offsetRatio = 0.1;
+        var al = options.axes_labels;
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var xm = xMid.toFixed(d);
+        if ( /^-0.?0*$/.test(xm) ) xm = xm.substr(1);
+        addLabel( al[0] + '=' + xm, a[0]*xMid, a[1]*b[1].y+offset, a[2]*b[0].z );
+        addLabel( ( b[0].x ).toFixed(d), a[0]*b[0].x, a[1]*b[1].y+offset, a[2]*b[0].z );
+        addLabel( ( b[1].x ).toFixed(d), a[0]*b[1].x, a[1]*b[1].y+offset, a[2]*b[0].z );
+
+        var offset = offsetRatio * a[0]*( b[1].x - b[0].x );
+        var ym = yMid.toFixed(d);
+        if ( /^-0.?0*$/.test(ym) ) ym = ym.substr(1);
+        addLabel( al[1] + '=' + ym, a[0]*b[1].x+offset, a[1]*yMid, a[2]*b[0].z );
+        addLabel( ( b[0].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[0].y, a[2]*b[0].z );
+        addLabel( ( b[1].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[1].y, a[2]*b[0].z );
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var zm = zMid.toFixed(d);
+        if ( /^-0.?0*$/.test(zm) ) zm = zm.substr(1);
+        addLabel( al[2] + '=' + zm, a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*zMid );
+        addLabel( ( b[0].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[0].z );
+        addLabel( ( b[1].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[1].z );
+
+    }
+
+    function addLabel( text, x, y, z ) {
+
+        var fontsize = 14;
+
+        var canvas = document.createElement( 'canvas' );
+        var pixelRatio = Math.round( window.devicePixelRatio );
+        canvas.width = 128 * pixelRatio;
+        canvas.height = 32 * pixelRatio; // powers of two
+        canvas.style.width = '128px';
+        canvas.style.height = '32px';
+
+        var context = canvas.getContext( '2d' );
+        context.scale( pixelRatio, pixelRatio );
+        context.fillStyle = 'black';
+        context.font = fontsize + 'px monospace';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText( text, canvas.width/2/pixelRatio, canvas.height/2/pixelRatio );
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var sprite = new THREE.Sprite( new THREE.SpriteMaterial( { map: texture } ) );
+        sprite.position.set( x, y, z );
+
+        // Set the initial scale based on plot size to accomodate orthographic projection.
+        // For other projections, the scale will get reset each frame based on camera distance.
+        var scale = midToCorner/2;
+        sprite.scale.set( scale, scale*.25 ); // ratio of canvas width to height
+
+        scene.add( sprite );
+
+    }
+
+    if ( options.axes ) scene.add( new THREE.AxesHelper( Math.min( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) ) );
+
+    var camera = createCamera();
+    camera.up.set( 0, 0, 1 );
+    camera.position.set( a[0]*(xMid+xRange), a[1]*(yMid+yRange), a[2]*(zMid+zRange) );
+
+    function createCamera() {
+
+        var aspect = window.innerWidth / window.innerHeight;
+
+        if ( options.projection === 'orthographic' ) {
+            var camera = new THREE.OrthographicCamera( -1, 1, 1, -1, -1000, 1000 );
+            updateCameraAspect( camera, aspect );
+            return camera;
+        }
+
+        return new THREE.PerspectiveCamera( 45, aspect, 0.1, 1000 );
+
+    }
+
+    function updateCameraAspect( camera, aspect ) {
+
+        if ( camera.isPerspectiveCamera ) {
+            camera.aspect = aspect;
+        } else if ( camera.isOrthographicCamera ) {
+            // Fit the camera frustum to the bounding box's diagonal so that the entire plot fits
+            // within at the default zoom level and camera position.
+            if ( aspect > 1 ) { // Wide window
+                camera.top = midToCorner;
+                camera.right = midToCorner * aspect;
+            } else { // Tall or square window
+                camera.top = midToCorner / aspect;
+                camera.right = midToCorner;
+            }
+            camera.bottom = -camera.top;
+            camera.left = -camera.right;
+        }
+
+        camera.updateProjectionMatrix();
+
+    }
+
+    var lights = [{"x":-5, "y":3, "z":0, "color":"#7f7f7f", "parent":"camera"}];
+    for ( var i=0 ; i < lights.length ; i++ ) {
+        var light = new THREE.DirectionalLight( lights[i].color, 1 );
+        light.position.set( a[0]*lights[i].x, a[1]*lights[i].y, a[2]*lights[i].z );
+        if ( lights[i].parent === 'camera' ) {
+            light.target.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+            scene.add( light.target );
+            camera.add( light );
+        } else scene.add( light );
+    }
+    scene.add( camera );
+
+    var ambient = {"color":"#7f7f7f"};
+    scene.add( new THREE.AmbientLight( ambient.color, 1 ) );
+
+    var controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls.target.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+    controls.addEventListener( 'change', function() { if ( !animate ) render(); } );
+
+    window.addEventListener( 'resize', function() {
+        
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        updateCameraAspect( camera, window.innerWidth / window.innerHeight );
+        if ( !animate ) render();
+        
+    } );
+
+    var texts = [{"text":"x", "x":3.141592653589793, "y":0.1, "z":0.1},{"text":"y", "x":0.1, "y":0.1, "z":1.5},{"text":"a", "x":0.7853981633974483, "y":0.0, "z":-0.1},{"text":"b", "x":2.356194490192345, "y":0.0, "z":-0.1}];
+    for ( var i=0 ; i < texts.length ; i++ )
+        addLabel( texts[i].text, a[0]*texts[i].x, a[1]*texts[i].y, a[2]*texts[i].z );
+
+    var points = [];
+    for ( var i=0 ; i < points.length ; i++ ) addPoint( points[i] );
+
+    function addPoint( json ) {
+
+        var geometry = new THREE.Geometry();
+        var v = json.point;
+        geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+
+        var canvas = document.createElement( 'canvas' );
+        canvas.width = 128;
+        canvas.height = 128;
+
+        var context = canvas.getContext( '2d' );
+        context.arc( 64, 64, 64, 0, 2 * Math.PI );
+        context.fillStyle = json.color;
+        context.fill();
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var transparent = json.opacity < 1 ? true : false;
+        var size = camera.isOrthographicCamera ? json.size : json.size/100;
+        var material = new THREE.PointsMaterial( { size: size, map: texture,
+                                                   transparent: transparent, opacity: json.opacity,
+                                                   alphaTest: .1 } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Points( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        scene.add( mesh );
+
+    }
+
+    var lines = [{"points":[[0.7853981633974483, 0.0, 0.7071067811865475], [0.8066251407865686, 0.0, 0.7219560939545244], [0.8278521181756888, 0.0, 0.7364801166615123], [0.8490790955648091, 0.0, 0.7506723052527244], [0.8703060729539294, 0.0, 0.7645262651870927], [0.8915330503430496, 0.0, 0.7780357543184396], [0.9127600277321699, 0.0, 0.7911946857079886], [0.9339870051212902, 0.0, 0.8039971303669408], [0.9552139825104105, 0.0, 0.8164373199278859], [0.9764409598995307, 0.0, 0.8285096492438423], [0.997667937288651, 0.0, 0.8402086789137546], [1.0188949146777713, 0.0, 0.8515291377333115], [1.0401218920668915, 0.0, 0.8624659250699808], [1.0613488694560118, 0.0, 0.8730141131611885], [1.082575846845132, 0.0, 0.8831689493346095], [1.1038028242342524, 0.0, 0.8929258581495688], [1.1250298016233726, 0.0, 0.9022804434585855], [1.146256779012493, 0.0, 0.911228490388136], [1.1674837564016132, 0.0, 0.9197659672377391], [1.1887107337907334, 0.0, 0.9278890272965097], [1.2099377111798537, 0.0, 0.9355940105763625], [1.231164688568974, 0.0, 0.9428774454610845], [1.2523916659580943, 0.0, 0.9497360502705322], [1.2736186433472145, 0.0, 0.9561667347392513], [1.2948456207363348, 0.0, 0.9621666014088497], [1.316072598125455, 0.0, 0.9677329469334991], [1.3372995755145753, 0.0, 0.9728632632979749], [1.3585265529036956, 0.0, 0.9775552389476865], [1.3797535302928159, 0.0, 0.9818067598301894], [1.4009805076819362, 0.0, 0.9856159103477087], [1.4222074850710564, 0.0, 0.9889809742202454], [1.4434344624601767, 0.0, 0.9919004352588771], [1.464661439849297, 0.0, 0.9943729780489027], [1.4858884172384172, 0.0, 0.9963974885425266], [1.5071153946275375, 0.0, 0.9979730545608126], [1.5283423720166578, 0.0, 0.9990989662046815], [1.549569349405778, 0.0, 0.9997747161747694], [1.5707963267948983, 0.0, 1.0], [1.5920233041840186, 0.0, 0.9997747161747694], [1.6132502815731389, 0.0, 0.9990989662046814], [1.6344772589622591, 0.0, 0.9979730545608124], [1.6557042363513794, 0.0, 0.9963974885425263], [1.6769312137404997, 0.0, 0.9943729780489022], [1.69815819112962, 0.0, 0.9919004352588766], [1.7193851685187402, 0.0, 0.988980974220245], [1.7406121459078605, 0.0, 0.9856159103477081], [1.7618391232969808, 0.0, 0.9818067598301887], [1.783066100686101, 0.0, 0.9775552389476857], [1.8042930780752213, 0.0, 0.9728632632979741], [1.8255200554643416, 0.0, 0.9677329469334983], [1.8467470328534619, 0.0, 0.9621666014088488], [1.8679740102425821, 0.0, 0.9561667347392503], [1.8892009876317024, 0.0, 0.9497360502705311], [1.9104279650208227, 0.0, 0.9428774454610833], [1.931654942409943, 0.0, 0.9355940105763614], [1.9528819197990632, 0.0, 0.9278890272965084], [1.9741088971881835, 0.0, 0.9197659672377377], [1.9953358745773038, 0.0, 0.9112284903881346], [2.016562851966424, 0.0, 0.902280443458584], [2.0377898293555443, 0.0, 0.8929258581495673], [2.0590168067446646, 0.0, 0.883168949334608], [2.080243784133785, 0.0, 0.8730141131611868], [2.101470761522905, 0.0, 0.8624659250699791], [2.1226977389120254, 0.0, 0.8515291377333097], [2.1439247163011457, 0.0, 0.8402086789137527], [2.165151693690266, 0.0, 0.8285096492438404], [2.186378671079386, 0.0, 0.8164373199278839], [2.2076056484685065, 0.0, 0.8039971303669387], [2.2288326258576268, 0.0, 0.7911946857079865], [2.250059603246747, 0.0, 0.7780357543184375], [2.2712865806358673, 0.0, 0.7645262651870904], [2.2925135580249876, 0.0, 0.7506723052527221], [2.313740535414108, 0.0, 0.7364801166615099], [2.334967512803228, 0.0, 0.7219560939545221], [2.356194490192345, 0.0, 0.7071067811865476]], "color":"blue", "opacity":1.0, "linewidth":1}];
+    for ( var i=0 ; i < lines.length ; i++ ) addLine( lines[i] );
+
+    function addLine( json ) {
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i < json.points.length ; i++ ) {
+            var v = json.points[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+        }
+
+        var transparent = json.opacity < 1 ? true : false;
+        var material = new THREE.LineBasicMaterial( { color: json.color, linewidth: json.linewidth,
+                                                      transparent: transparent, opacity: json.opacity } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Line( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        scene.add( mesh );
+
+    }
+
+    var surfaces = [{"vertices":[{"x":3.05159,"y":0,"z":2.34948e-16},{"x":3.05159,"y":0.00309017,"z":-0.00951057},{"x":3.05159,"y":0.01,"z":2.34948e-16},{"x":3.05159,"y":-0.00809017,"z":-0.00587785},{"x":3.05159,"y":-0.00809017,"z":0.00587785},{"x":3.05159,"y":0.00309017,"z":0.00951057},{"x":-0.785398,"y":0.00309017,"z":-0.00951057},{"x":-0.785398,"y":0.01,"z":0},{"x":-0.785398,"y":-0.00809017,"z":-0.00587785},{"x":-0.785398,"y":-0.00809017,"z":0.00587785},{"x":-0.785398,"y":0.00309017,"z":0.00951057},{"x":-0.785398,"y":0,"z":0}], "faces":[[0,1,2],[0,3,1],[0,4,3],[0,5,4],[0,2,5],[2,1,6,7],[1,3,8,6],[3,4,9,8],[4,5,10,9],[5,2,7,10],[7,6,11],[6,8,11],[8,9,11],[9,10,11],[10,7,11]], "color":"#000000", "opacity":1.0},{"vertices":[{"x":3.14159,"y":0,"z":2.40459e-16},{"x":3.05159,"y":0.00927051,"z":-0.0285317},{"x":3.05159,"y":0.03,"z":2.34948e-16},{"x":3.05159,"y":-0.0242705,"z":-0.0176336},{"x":3.05159,"y":-0.0242705,"z":0.0176336},{"x":3.05159,"y":0.00927051,"z":0.0285317},{"x":3.05159,"y":0,"z":2.34948e-16}], "faces":[[0,1,2],[0,3,1],[0,4,3],[0,5,4],[0,2,5],[2,1,6],[1,3,6],[3,4,6],[4,5,6],[5,2,6]], "color":"#000000", "opacity":1.0},{"vertices":[{"x":0,"y":0,"z":1.41},{"x":0.00951057,"y":0.00309017,"z":1.41},{"x":0,"y":0.01,"z":1.41},{"x":0.00587785,"y":-0.00809017,"z":1.41},{"x":-0.00587785,"y":-0.00809017,"z":1.41},{"x":-0.00951057,"y":0.00309017,"z":1.41},{"x":0.00951057,"y":0.00309017,"z":-1.5},{"x":0,"y":0.01,"z":-1.5},{"x":0.00587785,"y":-0.00809017,"z":-1.5},{"x":-0.00587785,"y":-0.00809017,"z":-1.5},{"x":-0.00951057,"y":0.00309017,"z":-1.5},{"x":0,"y":0,"z":-1.5}], "faces":[[0,1,2],[0,3,1],[0,4,3],[0,5,4],[0,2,5],[2,1,6,7],[1,3,8,6],[3,4,9,8],[4,5,10,9],[5,2,7,10],[7,6,11],[6,8,11],[8,9,11],[9,10,11],[10,7,11]], "color":"#000000", "opacity":1.0},{"vertices":[{"x":0,"y":0,"z":1.5},{"x":0.0285317,"y":0.00927051,"z":1.41},{"x":0,"y":0.03,"z":1.41},{"x":0.0176336,"y":-0.0242705,"z":1.41},{"x":-0.0176336,"y":-0.0242705,"z":1.41},{"x":-0.0285317,"y":0.00927051,"z":1.41},{"x":0,"y":0,"z":1.41}], "faces":[[0,1,2],[0,3,1],[0,4,3],[0,5,4],[0,2,5],[2,1,6],[1,3,6],[3,4,6],[4,5,6],[5,2,6]], "color":"#000000", "opacity":1.0},{"vertices":[{"x":1.1781,"y":0,"z":0},{"x":1.1781,"y":0,"z":0.92388},{"x":1.5708,"y":0,"z":0.92388},{"x":1.5708,"y":0,"z":0}], "faces":[[0,1,2,3]], "color":"#0000ff", "opacity":1.0}];
+    for ( var i=0 ; i < surfaces.length ; i++ ) addSurface( surfaces[i] );
+
+    function addSurface( json ) {
+
+        var useFaceColors = 'faceColors' in json ? true : false;
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i < json.vertices.length ; i++ ) {
+            var v = json.vertices[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v.x, a[1]*v.y, a[2]*v.z ) );
+        }
+        for ( var i=0 ; i < json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j < f.length - 2 ; j++ ) {
+                var face = new THREE.Face3( f[0], f[j+1], f[j+2] );
+                if ( useFaceColors ) face.color.set( json.faceColors[i] );
+                geometry.faces.push( face );
+            }
+        }
+        geometry.computeVertexNormals();
+
+        var side = json.singleSide ? THREE.FrontSide : THREE.DoubleSide;
+        var transparent = json.opacity < 1 ? true : false;
+
+        var material = new THREE.MeshPhongMaterial( { side: side,
+                                     color: useFaceColors ? 'white' : json.color,
+                                     vertexColors: useFaceColors ? THREE.FaceColors : THREE.NoColors,
+                                     transparent: transparent, opacity: json.opacity,
+                                     shininess: 20, flatShading: json.useFlatShading } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Mesh( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        if ( transparent && json.renderOrder ) mesh.renderOrder = json.renderOrder;
+        scene.add( mesh );
+
+        if ( json.showMeshGrid ) {
+
+            var geometry = new THREE.Geometry();
+
+            for ( var i=0 ; i < json.faces.length ; i++ ) {
+                var f = json.faces[i];
+                for ( var j=0 ; j < f.length ; j++ ) {
+                    var k = j === f.length-1 ? 0 : j+1;
+                    var v1 = json.vertices[f[j]];
+                    var v2 = json.vertices[f[k]];
+                    // vertices in opposite directions on neighboring faces
+                    var nudge = f[j] < f[k] ? .0005*zRange : -.0005*zRange;
+                    geometry.vertices.push( new THREE.Vector3( a[0]*v1.x, a[1]*v1.y, a[2]*(v1.z+nudge) ) );
+                    geometry.vertices.push( new THREE.Vector3( a[0]*v2.x, a[1]*v2.y, a[2]*(v2.z+nudge) ) );
+                }
+            }
+
+            var material = new THREE.LineBasicMaterial( { color: 'black', linewidth: 1 } );
+
+            var c = new THREE.Vector3();
+            geometry.computeBoundingBox();
+            geometry.boundingBox.getCenter( c );
+            geometry.translate( -c.x, -c.y, -c.z );
+
+            var mesh = new THREE.LineSegments( geometry, material );
+            mesh.position.set( c.x, c.y, c.z );
+            scene.add( mesh );
+
+        }
+
+    }
+
+    var scratch = new THREE.Vector3();
+
+    function render() {
+
+        if ( animate ) requestAnimationFrame( render );
+        renderer.render( scene, camera );
+
+        // Resize text based on distance from camera.
+        // Not neccessary for orthographic due to the nature of the projection (preserves sizes).
+        if ( !camera.isOrthographicCamera ) {
+            for ( var i=0 ; i < scene.children.length ; i++ ) {
+                if ( scene.children[i].type === 'Sprite' ) {
+                    var sprite = scene.children[i];
+                    var adjust = scratch.addVectors( sprite.position, scene.position )
+                                    .sub( camera.position ).length() / 5;
+                    sprite.scale.set( adjust, .25*adjust ); // ratio of canvas width to height
+                }
+            }
+        }
+    }
+    
+    render();
+    controls.update();
+    if ( !animate ) render();
+
+
+    // menu functions
+
+    function toggleMenu() {
+
+        var m = document.getElementById( 'menu-content' );
+        if ( m.style.display === 'block' ) m.style.display = 'none'
+        else m.style.display = 'block';
+
+    }
+
+
+    function saveAsPNG() {
+
+        var a = document.body.appendChild( document.createElement( 'a' ) );
+        a.href = renderer.domElement.toDataURL( 'image/png' );
+        a.download = 'screenshot';
+        a.click();
+
+    }
+
+    function saveAsHTML() {
+
+        toggleMenu(); // otherwise visible in output
+        event.stopPropagation();
+
+        var blob = new Blob( [ '<!DOCTYPE html>\n' + document.documentElement.outerHTML ] );
+        var a = document.body.appendChild( document.createElement( 'a' ) );
+        a.href = window.URL.createObjectURL( blob );
+        a.download = 'graphic.html';
+        a.click();
+
+    }
+
+    function getViewpoint() {
+
+        var info = '<pre>' + JSON.stringify( camera, null, '\t' ) + '</pre>';
+        window.open().document.write( info );
+
+    }
+
+</script><canvas width="1968" height="800" tabindex="0" style="width: 984px; height: 400px;"></canvas>
+
+<div id="menu-container" onclick="toggleMenu()">ⓘ
+<div id="menu-content" style="display: none;">
+<div onclick="saveAsPNG()">Save as PNG</div>
+<div onclick="saveAsHTML()">Save as HTML</div>
+<div onclick="getViewpoint()">Camera Info</div>
+<div>Close Menu</div>
+</div></div>
+
+
+
+</body></html>

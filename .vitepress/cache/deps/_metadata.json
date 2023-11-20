@@ -1,23 +1,23 @@
 {
-  "hash": "20a52899",
-  "browserHash": "d8e4e5ce",
+  "hash": "965e242b",
+  "browserHash": "c46a4162",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "002080a1",
+      "fileHash": "d7137664",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "8dc8d95b",
+      "fileHash": "3fdca7d4",
       "needsInterop": false
     },
     "canvas-confetti": {
       "src": "../../../node_modules/canvas-confetti/dist/confetti.module.mjs",
       "file": "canvas-confetti.js",
-      "fileHash": "42f59056",
+      "fileHash": "3953f4c2",
       "needsInterop": false
     }
   },

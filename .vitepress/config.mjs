@@ -6,6 +6,7 @@ export default defineConfig({
   title: 'Mathematico',
   description: 'Learn and revise A Level Maths',
   srcDir: 'src',
+  ignoreDeadLinks: true,
 
   markdown: {
     math: true
@@ -20,10 +21,5 @@ export default defineConfig({
     },
 
     socialLinks: [{ icon: 'github', link: '/' }]
-  },
-  async postRender() {
-    const skills = await createContentLoader('skills/*/*/*.md').load()
-    console.log(skills)
-    console.log('hmm')
   }
 })

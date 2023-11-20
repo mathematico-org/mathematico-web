@@ -1,0 +1,51 @@
+\documentclass[border=10pt]{standalone}
+% \documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows, decorations.pathmorphing, decorations.markings, backgrounds, positioning, fit, petri, patterns, angles, quotes}
+\tikzstyle{particle} = [thick, fill=black!10]
+
+\usepackage[T1]{fontenc}
+\usepackage{dsfont}
+\usepackage[utopia, greeklowercase=upright]{mathdesign}
+\usepackage{amsmath}
+
+\begin{document}
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{stealth}}},postaction={decorate}}}
+
+\tikzset{-<-/.style={decoration={
+markings,
+mark=at position .5 with {\arrowreversed{stealth}}},postaction={decorate}}}
+
+\begin{tikzpicture}
+
+\draw[-stealth] (-0.2,-0.2) -- node[midway,below] {$\vec{i}$} (0.2,-0.2);
+\draw[-stealth] (-0.2,-0.2) -- node[midway,left] {$\vec{j}$} (-0.2,0.2);
+
+\path (1.5, -1) coordinate (B)
+	-- (1.5,0) coordinate (A)
+	-- +(230:3) coordinate (C);
+
+\path (1.5,1) coordinate (D)
+	-- (A)
+	-- +(120:3) coordinate (E);
+
+\fill[pattern=north west lines, pattern color=black!50, draw=none] (2,-3) rectangle (2.5,3);
+\draw[ultra thick] (2,-3) -- (2,3);
+
+\draw[dashed] (1.5,0.5) -- ++(0,2);
+\draw[dashed] (1.5,-0.5) -- ++(0,-2);
+
+\draw pic[draw,fill=blue!30,angle radius=1cm,"$\alpha$" shift={(-0.3mm,-1mm)}] {angle=C--A--B};
+
+\draw pic[draw,fill=green!30,angle radius=1cm,"$\beta$" shift={(-0.3mm,1.2mm)}] {angle=D--A--E};
+
+\draw[particle] (1.5,0) circle (0.5) node {$m_{A}$};
+
+\draw[black,->-] (1.5,0)+(120:0.5) -- node[midway,above right] {$\vec{v}$} +(120:3);
+\draw[black,-<-] (1.5,0)+(230:0.5) -- node[midway,below right] {$\vec{u}$} +(230:3);
+
+\end{tikzpicture}
+
+\end{document}

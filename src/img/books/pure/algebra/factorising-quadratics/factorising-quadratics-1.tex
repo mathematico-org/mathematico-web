@@ -1,0 +1,22 @@
+\documentclass[border=10pt]{standalone}
+% \documentclass{article}
+\usepackage{tikz}
+
+\usepackage[T1]{fontenc}
+\usepackage{dsfont}
+\usepackage[utopia, greeklowercase=upright]{mathdesign}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\draw (0,0) -- node [below] {$2x + 1$} (4,0)
+	-- (4,3)
+	-- node [above, sloped] {$3x + 2$} (0,0);
+
+\draw (4,0) rectangle (3.7,0.3);
+
+\end{tikzpicture}
+
+\end{document}

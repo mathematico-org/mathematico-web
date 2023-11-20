@@ -7,12 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vitepress dev",
-    "build": "vitepress build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vitepress build",
     "preview": "vitepress preview"
   },
   "author": "Simon Haines",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "vitepress": "^1.0.0-rc.25"
   },
   "dependencies": {

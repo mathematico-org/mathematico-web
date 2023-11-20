@@ -9,8 +9,10 @@ Find the range of possible values of $k$.
 
 ---
 
-The distance from $P$ to $Q$ can be found using the distance formula. This distance must be greater than $\sqrt{5}$.
+The distance from $P$ to $Q$ can be found using the distance formula. This
+distance must be greater than $\sqrt{5}$.
 
 ---
 
-You should end up solving a [quadratic inequality](/skills/pure/quadratics/quadratic-inequalities)
+You should end up solving a
+[quadratic inequality](/pure/quadratics/quadratic-inequalities)
