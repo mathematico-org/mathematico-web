@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vitepress dev",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "make:img": "cd src/img/tex && make"
   },
   "author": "Simon Haines",
   "license": "ISC",
