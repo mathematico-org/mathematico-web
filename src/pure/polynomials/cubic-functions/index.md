@@ -51,9 +51,9 @@ $$
 
 and explain your answer.
 
-<img src="/img/books/pure/polynomials/cubic-6.png" style="display: block; margin: auto; max-height: 40vh; max-width: 100%;">
+<!-- <img src="/img/books/pure/polynomials/cubic-6.png" style="display: block; margin: auto; max-height: 40vh; max-width: 100%;"> -->
 
-<img src="/img/books/pure/polynomials/cubic-7.png" style="display: block; margin: auto; max-height: 40vh; max-width: 100%;">
+<!-- <img src="/img/books/pure/polynomials/cubic-7.png" style="display: block; margin: auto; max-height: 40vh; max-width: 100%;"> -->
 
 <hint>
 
@@ -101,7 +101,7 @@ is quite hard, we assume it for now).
 
 Given any quadratic and any cubic, prove that they must eventually intersect.
 
-<img src="/img/books/pure/polynomials/cubic-8.png" style="display: block; margin: auto; max-height: 35vh; max-width: 100%;">
+<!-- <img src="/img/books/pure/polynomials/cubic-8.png" style="display: block; margin: auto; max-height: 35vh; max-width: 100%;"> -->
 
 <hint>
 

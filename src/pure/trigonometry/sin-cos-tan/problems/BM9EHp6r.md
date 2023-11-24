@@ -19,4 +19,4 @@ Also, you can use Pythagoras to find the hypotenuse.
 
 ---
 
-<img src="/img/books/pure/trigonometry/standard-2-hints.png" style="display: block; margin: auto; max-height: 30vh; max-width: 100%;">
+<!-- <img src="/img/books/pure/trigonometry/standard-2-hints.png" style="display: block; margin: auto; max-height: 30vh; max-width: 100%;"> -->

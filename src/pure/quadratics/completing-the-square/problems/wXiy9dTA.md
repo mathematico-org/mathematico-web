@@ -1,59 +1,103 @@
 ---
 id: wXiy9dTA
 vimeo: 111
-answer: -143
+answer: 143
 ---
 
- 1. Expand and simplify
-    $$
-    (a-b)(a+b)
-    $$
+Find the product of all integer values of $n$ such that
 
- 1. Find all pairs of integers $a,b$ that satisfy the equation
-    $$
-    a^2 - b^2 = 3
-    $$
-
- 1. Hence, find all integer values of $n$ such that
-    $$
-    n^2 - 24n + 147
-    $$
-    is a square number.
-
----
-
-For (b), use part (a) to conclude that
 $$
-(a-b)(a+b) = 3
+n^2 - 24n + 147
 $$
-Since $3$ can only be written as $3\times 1$ or $-3 \times -1,$ we must have four possible cases:
+
+is a square number.
+
+<AnswerInput :answer="$frontmatter.answer" />
+
+::: details Hint
+
+Assume that $m, n \in \mathbb{Z}$ and
+
+$$
+n^2 - 24n + 147 = m^2
+$$
+
+Complete the square on the left-hand side.
+
+:::
+
+::: details Hint
+
+Aim to get your equation in the form
+
+$$
+a^2 - b^2 = c
+$$
+
+and factorise the left-hand side into two brackets.
+
+What can you conclude from the possible factorisations of $c$ into two integers?
+
+:::
+
+::: details Solution
+
+Assume that $m, n \in \mathbb{Z}$ and
+
 $$
 \begin{aligned}
-a - b = 1 \,\, & \text{ and } \, a + b = 3 \\
-a - b = 3 \,\, & \text{ and } \, a + b = 1 \\
-a - b = -1 \,\, & \text{ and } \, a + b = -3 \\
-a - b = -3 \,\, & \text{ and } \, a + b = -1
+n^2 - 24n + 147 & = m^2 \\
+(n - 12)^2 + 3 & = m^2 \\
+m^2 - (n - 12)^2 & = 3 \\
+(m - n + 12)(m + n - 12) & = 3
 \end{aligned}
 $$
-Solve each case to find the possible values of $a$ and the corresponding value of $b$
 
----
+Notice that $3$ has been factored into two integers. There are four possible
+cases:
 
-For (c), the value of $n^2 - 24n + 147$ must be square, so let's say it is $m^2$.
+**Case 1**
 
-You can complete the square to get
 $$
-(n-12)^2 + 3 = m^2
+\begin{aligned}
+m - n + 12 & = 1 \\
+m + n - 12 & = 3
+\end{aligned}
 $$
 
----
+In this case, $m = 2, n = 13$.
 
-The previous hint rearranges to give
+**Case 2**
+
 $$
-m^2 - (n-12)^2 = 3
+\begin{aligned}
+m - n + 12 & = 3 \\
+m + n - 12 & = 1
+\end{aligned}
 $$
-and so $(n-12)$ is just like the number $b$ from question (b).
 
----
+In this case, $m = 2, n = 11$.
 
-Give the product of all possible integer values of $n$.
+**Case 3**
+
+$$
+\begin{aligned}
+m - n + 12 & = -1 \\
+m + n - 12 & = -3
+\end{aligned}
+$$
+
+In this case, $m = -2, n = 11$.
+
+**Case 4**
+
+$$
+\begin{aligned}
+m - n + 12 & = -3 \\
+m + n - 12 & = -1
+\end{aligned}
+$$
+
+In this case, $m = -2, n = 13$.
+
+:::

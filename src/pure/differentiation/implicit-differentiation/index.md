@@ -16,37 +16,48 @@ problems:
 ---
 
 Sometimes, it is impossible to give the equation of a curve in the form
+
 $$
 y = f(x)
 $$
+
 for example, the set of $(x,y)$ satisfying
+
 $$
 \sqrt{y} + \sin(2y) = \frac{4x}{x^2 + 1}
 $$
+
 gives us the curve
 
-<img style="max-height: 30vh; max-width: 90%; display: block; margin: auto;" src="/img/books/pure/differentiation/implicit-1.png">
+<!-- <img style="max-height: 30vh; max-width: 90%; display: block; margin: auto;" src="/img/books/pure/differentiation/implicit-1.png"> -->
 
-but we cannot give $y$ as an explicit function of $x.$ Rather, the points $y$ are defined *implicitly.*
+but we cannot give $y$ as an explicit function of $x.$ Rather, the points $y$
+are defined _implicitly._
 
 In this case, we still imagine $y$ is a function of $x,$ and to differentiate
+
 $$
 f(y)
 $$
+
 we use the chain rule:
+
 $$
 \frac{d}{dx} f(y) = f'(y) \frac{dy}{dx}
 $$
 
 ---
 
- 1. The curve $C$ is defined by
+1.  The curve $C$ is defined by
+
     $$
     xy^2 - 2x + y^2 + y - 3 = -4
     $$
-    Verify that the point $P(-1,-3)$ lies on the curve, and find the rate of change of $y$ with respect to $x$ at this point.
 
- 1. Find the equation of the tangent to the curve
+    Verify that the point $P(-1,-3)$ lies on the curve, and find the rate of
+    change of $y$ with respect to $x$ at this point.
+
+1.  Find the equation of the tangent to the curve
     $$
     xy - 3x - 2y + 5 = -2
     $$
@@ -95,7 +106,7 @@ $$
 # Problem
 
  1.
- 
+
  By taking $\ln$ of both sides, and using implicit differentiation, differentiate
  $$
  y = a^{x}, \quad a > 0
@@ -136,7 +147,7 @@ Start by taking $\ln$ of both sides.
 # Problem
 
  1.
- 
+
  Let
  $$
  y = \arcsin(x)
@@ -261,4 +272,3 @@ In each case, find $\frac{dy}{dx}$
  \frac{y}{e^x} = \frac{e^y}{x}
  $$
  -->
-

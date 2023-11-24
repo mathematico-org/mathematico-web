@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		xlabel={$x$},
+		ylabel={$y$},
+		ymin=-16
+	]
+		\addplot[thick,color=mygreen,domain=-6.5:3.5,samples=100]{x^2 + 3*x - 10};
+		\node[label={45:{$A$}}] at (axis cs:-5,0) {$\bullet$};
+		\node[label={135:{$B$}}] at (axis cs:2,0) {$\bullet$};
+		\node[label={270:{$C$}}] at (axis cs:-1.5,-12.25) {$\bullet$};
+
+	\end{axis}
+	\end{tikzpicture}
+\end{document}

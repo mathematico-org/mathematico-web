@@ -29,4 +29,4 @@ You can then find the height using Pythagoras.
 
 ---
 
-<img src="/img/books/pure/trigonometry/standard-1-hints.png" style="display: block; margin: auto; max-height: 30vh; max-width: 100%;">
+<!-- <img src="/img/books/pure/trigonometry/standard-1-hints.png" style="display: block; margin: auto; max-height: 30vh; max-width: 100%;"> -->

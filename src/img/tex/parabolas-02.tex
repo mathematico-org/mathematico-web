@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.2,
+		xlabel={$x$},
+		ylabel={$y$},
+		ymin=-16,
+	]
+		\addplot[thick,color=mygreen,domain=-6.5:2.5,samples=100]{x^2 + 4*x - 9};
+		\node[label={45:{$P(-6,3)$}}] at (axis cs:-6,3) {$\bullet$};
+		\node[label={135:{$Q(2,3)$}}] at (axis cs:2,3) {$\bullet$};
+		\node[label={270:{$R(-2,-13)$}}] at (axis cs:-2,-13) {$\bullet$};
+
+    \draw[thick, color=myblue, fill, fill opacity=0.1] (axis cs:-6,3) -- node[midway, above, opacity=1]{$8$} (axis cs:2,3) -- (axis cs:-2,-13) -- cycle;
+
+    \draw[thick, color=myblue, dashed] (axis cs:-2,-13) -- node[midway, right]{$16$} (axis cs:-2, 3);
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}
