@@ -6,42 +6,51 @@ tags:
   - modelling
 ---
 
-A farmer is building a pen. The farmer uses $120\text{m}$ of fencing and builds a pen in the following shape:
+A farmer is building a pen. The farmer uses $120\text{m}$ of fencing and builds
+a pen in the following shape:
 
 ![Farmer pen](/img/learn/quad-17.svg)
 
-What is the minimum possible area for the interior of the shape, and for what values of $a$ and $b$ does this occur?
+Find the value of $Aab$, where $A$ is the minimum possible area of the pen, and
+$a, b$ are the dimensions for which this minimum occurs.
 
----
+<AnswerInput :answer="$frontmatter.answer" />
 
-The perimeter of the shape is $120$
-
----
+::: details Hint
 
 The perimeter of the shape is given by the expression
+
 $$
 4a + 2b
 $$
-and the area is given by
-$$
-a^2 + b^2
-$$
 
----
+:::
 
-We have
+::: details Solution
+
+Considering the perimeter, we have
+
 $$
 \begin{aligned}
 && 4a + 2b & = 120 \\
-\Rightarrow \quad && b & = 60 - 2a
+\Rightarrow && b & = 60 - 2a
 \end{aligned}
 $$
-Substitute this expression for $b$ into the expression for the area and complete the square.
 
----
+Substituting this into the area, we get
 
-If the minimum area possible is $A$, give the value of
 $$
-Aab
+\begin{aligned}
+a^2 + b^2
+& = a^2 + (60 - 2a)^2 \\
+& = a^2 + 3600 - 240a + 4a^2 \\
+& = 5a^2 - 240a + 3600 \\
+& = 5 \left[ a^2 - 48a \right] + 3600 \\
+& = 5 \left[ \left( a - 24 \right)^2 - 576 \right] + 3600 \\
+& = 5 \left( a - 24 \right)^2 + 72
+\end{aligned}
 $$
-where $a$ and $b$ are the dimensions for which $A$ occurs.
+
+The minimum area for the pen is $720$ and it occurs when $a = 24$ and $b = 12$.
+
+:::

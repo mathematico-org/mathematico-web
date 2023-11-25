@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+    scale=1.5,
+		xlabel={$x$},
+		ylabel={$y$},
+		ymin=-5
+	]
+		\addplot[thick,color=mygreen,domain=-1:2,samples=100]{4*x^2 - 4*x + 5};
+		\node[label={270:{$\left( \frac{1}{2}, 4 \right)$}}] at (axis cs:.5,4) {$\bullet$};
+		\node[label={200:{$5$}}] at (axis cs:0,5) {$\bullet$};
+
+	\end{axis}
+	\end{tikzpicture}
+\end{document}

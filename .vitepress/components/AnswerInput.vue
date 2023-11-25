@@ -57,9 +57,7 @@ input {
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
   font-size: 14px;
-  font-weight: 600;
   border: 1px solid var(--vp-button-alt-bg);
-  font-weight: 600;
 }
 
 input:focus {
