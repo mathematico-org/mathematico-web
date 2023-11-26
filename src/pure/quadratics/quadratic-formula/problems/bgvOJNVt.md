@@ -1,20 +1,29 @@
 ---
 id: bgvOJNVt
 vimeo: 111
-answer: 15
+answer: 5
 ---
 
-One of the solutions in $x$ of the quadratic
+The roots of the quadratic
+
 $$
 x^2 + (k+2)x + k, \quad k < 0
 $$
-is $3$ larger than the other.
 
-Solve the quadratic equation, giving both possible values of $x$.
+are $\alpha$ and $\beta$.
 
----
+Given that $\beta$ is $3$ larger than $\alpha$, find the value of
+
+$$
+\frac{\beta^2}{\alpha^2}
+$$
+
+<AnswerInput :answer="$frontmatter.answer" />
+
+::: details Hint
 
 We have
+
 $$
 \begin{aligned}
 a & = 1 \\
@@ -22,29 +31,57 @@ b & = (k+2) \\
 c & = k
 \end{aligned}
 $$
-The quadratic formula tells us the roots are
+
+:::
+
+::: details Hint
+
+The larger root minus the smaller root is equal to $3$.
+
+:::
+
+::: details Solution
+
+The formula gives the roots as
+
 $$
 \begin{aligned}
-x_0 & = \frac{-b - \sqrt{b^2 - 4ac}}{2a} \\
-x_1 & = \frac{-b + \sqrt{b^2 - 4ac}}{2a}
+x
+& = \frac{-(k+2) \pm \sqrt{(k+2)^2 - 4k}}{2} \\
+& = \frac{-(k+2) \pm \sqrt{k^2 + 4}}{2}
 \end{aligned}
 $$
 
----
+The larger root minus the smaller root is equal to $3$, so
 
-Since one of the roots is $3$ larger than the other, we have $x_1 = x_0 + 3$ so that $x_1 - x_0 = 3$.
-
----
-
-You should end up solving
 $$
-\sqrt{k^2 + 4} = 3
+\begin{aligned}
+\frac{-(k+2) + \sqrt{k^2 + 4}}{2} - \frac{-(k+2) - \sqrt{k^2 + 4}}{2} & = 3 \\
+\sqrt{k^2 + 4} & = 3 \\
+k^2 + 4 & = 9 \\
+k & = \pm \sqrt{5}
+\end{aligned}
 $$
-This can be solve by squaring both sides first. (Remember to look at the information in the question: we are told that $k < 0$.)
 
----
+But $k < 0$, so $k = -\sqrt{5}$.
 
-The solutions are $x = \alpha$ and $x = \beta$, where $\alpha < \beta$. Give the value of
+To find the roots, we must solve
+
 $$
-5\beta^2 + \alpha^2
+\begin{aligned}
+x^2 + (k+2)x + k & = 0 \\
+x^2 + (2 - \sqrt{5})x - \sqrt{5} & = 0 \\
+\end{aligned}
 $$
+
+We of course use the formula
+
+$$
+\begin{aligned}
+x & = \frac{-(2 - \sqrt{5}) \pm \sqrt{(2 - \sqrt{5})^2 - 4(1)(-\sqrt{5})}}{2} \\
+x & = \frac{\sqrt{5} - 2 \pm 3}{2} \\
+x & \in \left\{ \frac{\sqrt{5} - 5}{2}, \,\, \frac{\sqrt{5} - 1}{2} \right\}
+\end{aligned}
+$$
+
+:::

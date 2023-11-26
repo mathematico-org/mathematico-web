@@ -17,6 +17,8 @@ What is the maximum possible total area for the pen?
 
 Give your answer as an exact decimal in $\text{m}^2$.
 
+<AnswerInput :answer="$frontmatter.answer" />
+
 ::: details Hint
 
 Let the height be $a$ and the width be $b$:

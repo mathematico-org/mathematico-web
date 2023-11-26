@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+    scale=1.5,
+		xlabel={$t$},
+		ylabel={$h$},
+		ymin=-3,
+    xmin = -.5
+	]
+		\addplot[thick,color=mygreen,domain=0:3,samples=100]{1.1*x^2 - 2.3*x + 7};
+		\addplot[thick,color=myblue,domain=0:3,samples=100]{-1.2*x^2 + 2.4*x + 6};
+		\node[label={270:{$0.604\ldots$}}] at (axis cs:.604, 0) {$\bullet$};
+		\node[label={270:{$1.439\ldots$}}] at (axis cs:1.4393, 0) {$\bullet$};
+		\node[label={270:{$2.04\ldots$}}] at (axis cs:2.04, 0) {$\bullet$};
+    \draw[dashed] (axis cs:0.604, 0) -- (axis cs:0.604, 10);
+    \draw[dashed] (axis cs:1.4393, 0) -- (axis cs:1.4393, 10);
+    \draw[dashed] (axis cs:2.04, 0) -- (axis cs:2.04, 10);
+    \fill [gray, opacity=0.1] (axis cs:0, 0) rectangle (axis cs:0.604, 10); 
+    \fill [gray, opacity=0.1] (axis cs:1.4393, 0) rectangle (axis cs:2.04, 10); 
+	\end{axis}
+	\end{tikzpicture}
+\end{document}

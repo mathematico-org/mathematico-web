@@ -18,6 +18,8 @@ should be the length of the piece of wire we use to form the circle?
 The answer can be given in the form $\frac{m \pi}{\pi + n}$. Give the value of
 $mn$.
 
+<AnswerInput :answer="$frontmatter.answer" />
+
 ::: details Hint
 
 Suppose the piece of wire used for the circle is of length $x$. Then the

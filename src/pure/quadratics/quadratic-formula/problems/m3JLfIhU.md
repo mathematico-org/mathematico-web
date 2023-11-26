@@ -1,33 +1,73 @@
 ---
 id: m3JLfIhU
 vimeo: 111
-answer: 60
+answer: 19
 ---
 
-One of the solutions of equation
+The roots of the equation
+
 $$
 x + 4 = \frac{k}{x}
 $$
-is $x = \sqrt{5} - 2$.
 
-Find the other value of $x$ which satisfies the equation.
+are $\alpha$ and $\beta$.
 
----
+Given that $\alpha = \sqrt{5} - 2$, find the value of
+$\alpha^2 + \beta^2 + k^2$.
+
+<AnswerInput :answer="$frontmatter.answer" />
+
+::: details Hint
 
 It's best to multiply by $x$ to get
+
 $$
 x^2 + 4x - k = 0
 $$
-Now substitute $x = \sqrt{5}-2$ to find the value of $k.$
 
----
+Now substitute $x = \sqrt{5} - 2$ to find the value of $k.$
 
-Once you know $k,$ this becomes a quadratic which you can solve using the formula.
+:::
 
----
+::: details Hint
 
-Let the other value of $x$ which solves this equation be $\beta$. Then
+Once you know $k,$ this becomes a quadratic which you can solve using the
+formula.
+
+:::
+
+::: details Solution
+
+Let's simplify first
+
 $$
-(\beta + k)^2 = a + b\sqrt{c}, \quad a,b,c \in \mathbb{N}
+\begin{aligned}
+x + 4 & = \frac{k}{x} \\
+x^2 + 4x & = k \\
+x^2 + 4x - k & = 0
+\end{aligned}
 $$
-where the right hand side is in simplest form. Give the value of $abc$.
+
+We know that $x = \sqrt{5} - 2$ solves the equation, so
+
+$$
+\begin{aligned}
+(\sqrt{5} - 2)^2 - 4(\sqrt{5} - 2) & = k \\
+9 - 4\sqrt{5} + 4\sqrt{5} - 8 & = k \\
+k & = 1
+\end{aligned}
+$$
+
+Our original equation is therefore
+
+$$
+\begin{aligned}
+x^2 + 4x - 1 & = 0 \\
+x & = \frac{-4 \pm \sqrt{16 - 4(1)(-1)}}{2} \\
+& = -2 \pm \sqrt{5}
+\end{aligned}
+$$
+
+So $\alpha^2 + \beta^2 + k^2 = 19$
+
+:::
