@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+    scale=1.5,
+		xlabel={$x$},
+		ylabel={$y$}
+	]
+		\addplot[thick,color=mygreen,domain=-2:1,samples=100]{2 - x^2};
+		\addplot[thick,color=mypurple,domain=-2:1,samples=100]{2*x + 4};
+		\node[label={280:{$P$}}] at (axis cs:-1,1) {$\bullet$};
+		\node[label={100:{$Q$}}] at (axis cs:-1,2) {$\bullet$};
+    \draw[dashed] (axis cs:-1,1) -- node[midway, left]{$d$} (axis cs:-1,2);
+
+	\end{axis}
+	\end{tikzpicture}
+\end{document}

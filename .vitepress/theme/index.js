@@ -8,6 +8,8 @@ import Exercise from '../components/Exercise.vue'
 import Vimeo from '../components/Vimeo.vue'
 import AnswerInput from '../components/AnswerInput.vue'
 
+import vKatex from '../directives/katex'
+
 /** @type {import('vitepress').Theme} */
 export default {
   extends: DefaultTheme,
@@ -21,5 +23,9 @@ export default {
     app.component('Exercise', Exercise)
     app.component('Vimeo', Vimeo)
     app.component('AnswerInput', AnswerInput)
+    app.directive('katex', vKatex)
+    app.mounted = () => {
+      ;() => console.log('MOUNTED!')
+    }
   }
 }

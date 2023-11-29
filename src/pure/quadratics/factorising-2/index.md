@@ -15,20 +15,35 @@ problems:
   - iiLDpsB3
 ---
 
-Sometimes, our quadratics can look a little bit trickier. If they are of the form
+# {{$frontmatter.title}}
+
+Sometimes, our quadratics can look a little bit trickier. If they are of the
+form
+
 $$
 ax^2 + bx + c = 0
 $$
-where $a \neq 0$ they are harder to factorise. For these harder quadratics, we're going to learn a method called *splitting the middle*.
 
-As before, it is important to get $0$ on one side of the equation before we begin.
+where $a \neq 0$ they are harder to factorise. For these harder quadratics,
+we're going to learn a method called _splitting the middle_.
 
----
+As before, it is important to get $0$ on one side of the equation before we
+begin.
+
+## Example
+
+<Example :id="$frontmatter.vimeo">
 
 Solve the following equations:
 
- 1. $2 y^{2} - 7 = 5 y$
+1.  $2 y^{2} - 7 = 5 y$
 
- 1. $- 8 x^{2} - 24 x + 11 = -3$
+1.  $- 8 x^{2} - 24 x + 11 = -3$
 
- 1. $2 p^{2} - 12 p + 21 = 3$
+1.  $2 p^{2} - 12 p + 21 = 3$
+
+</Example>
+
+## Exercise
+
+<Exercise :id="$frontmatter.id"></Exercise>

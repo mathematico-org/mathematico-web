@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$x$},
+		ylabel={$y$},
+    ymin = -2,
+    ymax = 10,
+	]
+		\addplot[thick,color=mygreen,domain=-1.25:5,samples=100]{(x - 1)*(x - 3)};
+		\node[label={235:{$A(1,0)$}}] at (axis cs:1,0) {$\bullet$};
+		\node[label={305:{$B(3,0)$}}] at (axis cs:3,0) {$\bullet$};
+		\node[label={15:{$C(0,3)$}}] at (axis cs:0,3) {$\bullet$};
+		\node[] at (axis cs:-1,8) {$\bullet$};
+		\node[] at (axis cs:2,-1) {$\bullet$};
+		\node[] at (axis cs:4,3) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

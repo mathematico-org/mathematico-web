@@ -42,6 +42,7 @@
  * - `danger`: Used to show error, or dangerous message to the users. Used
  *   in custom container, badges, etc.
  * -------------------------------------------------------------------------- */
+@import '../../node_modules/katex/dist/katex.min.css';
 
 :root {
   --vp-c-default-1: var(--vp-c-gray-1);
@@ -153,6 +154,7 @@ img {
   margin: auto;
 }
 
-.dark img {
+.dark img,
+.dark .rudiment svg {
   filter: invert(1);
 }

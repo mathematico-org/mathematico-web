@@ -53,7 +53,7 @@ $$
 ::: details Hint
 
 Recall that $q \in \mathbb{Z}$. This means that $(2q+1) \in \mathbb{Z}$ and
-$(2q - 3)$ \in \mathbb{Z}$.
+$(2q - 3) \in \mathbb{Z}$.
 
 The equation $(2q + 1)^2(2q - 3) = 25$ therefore implies that $25$ has been
 factored into $\text{odd}^2 \times \text{odd}$. There's only two ways to do
@@ -100,7 +100,7 @@ $$
 
 This implies $25$ has been factored into a square multiplied by an integer. The
 only ways to do this are $1^2 \times 25$ or $5^2 \times 1$. We can't have
-$2q + 1 = 1$ because the diagram implies $q > \frac{3}{2}$, so we must have
+$2q + 1 = 1$ because the diagram implies $q > 0$, so we must have
 
 $$
 \begin{aligned}

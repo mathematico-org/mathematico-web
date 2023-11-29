@@ -16,14 +16,37 @@ problems:
   - wXiy9dTA
 ---
 
-We have learned how to factorise a quadratic, but there are some quadratic equations that cannot be solved by factorising, and so we need to learn how to **complete the square**
+# {{$frontmatter.title}}
 
----
+We have learned how to factorise a quadratic, but there are some quadratic
+equations that cannot be solved by factorising, and so we need to learn how to
+**complete the square**.
 
-Express each quadratic below in complete square form, and hence find the roots of the quadratic.
+This involves taking a quadratic in the form $ax^2 + bx + c$ and getting it into
+the form
 
- 1. $x^2 + 4x + 3$
+$$
+p(x - q)^2 + r
+$$
 
- 1. $x^2 - 6x + 10$
+Doing this allows us to solve _any_ quadratic equation, not just ones that can
+be factorised.
 
- 1. $x^2 + 3x + 5$
+## Example
+
+<Example :id="$frontmatter.vimeo">
+
+Express each quadratic below in complete square form, and hence find the roots
+of the quadratic.
+
+1.  $x^2 + 4x + 3$
+
+1.  $x^2 - 6x + 10$
+
+1.  $x^2 + 3x + 5$
+
+</Example>
+
+## Exercise
+
+<Exercise :id="$frontmatter.id" />

@@ -10,7 +10,7 @@ $$
 \frac{1}{(x+5)^2} + \frac{2}{x+5} + 3 = 4
 $$
 
-can be expressed in the form $a \pm \sqrt{b}$ for some $a, b \in \mathbb{z}$.
+can be expressed in the form $a \pm \sqrt{b}$ for some $a, b \in \mathbb{Z}$.
 
 Find the value of $ab$.
 

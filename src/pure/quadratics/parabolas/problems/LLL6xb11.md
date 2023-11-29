@@ -76,7 +76,7 @@ find the $y$ coordinates using the equation of the curve.
 
 ::: details Solution
 
-1. The parabola has only one root, when $x = 5$ (we determine this by symettry).
+1. The parabola has only one root, when $x = 5$ (we determine this by symmetry).
    The equation $p(x - q)^2 = 0$ is only solved by $x = q$, and so we conclude
    that $q = 5$ and $y = p(x - 5)^2$.
 
