@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, reactive, ref } from 'vue'
+import rudimentService from '../services/rudiment'
 
 const props = defineProps({
   id: { type: String, default: '' }
@@ -18,8 +19,7 @@ const rudiment = reactive({
 
 async function fetchRudiment() {
   rudiment.fetching = true
-  const res = await fetch('http://localhost:5000/rudiment/' + props.id)
-  const data = await res.json()
+  const data = await rudimentService.get(props.id)
   Object.assign(rudiment, data)
   console.log(rudiment)
   rudiment.fetching = false
