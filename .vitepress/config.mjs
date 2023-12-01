@@ -12,6 +12,14 @@ export default defineConfig({
     math: true
   },
 
+  vite: {
+    server: {
+      port: process.env.VITE_PORT,
+      strictPort: true,
+      host: true
+    }
+  },
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [{ text: 'Pure', link: '/pure/' }],
