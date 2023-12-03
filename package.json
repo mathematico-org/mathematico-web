@@ -21,6 +21,7 @@
     "canvas-confetti": "^1.9.1",
     "gray-matter": "^4.0.3",
     "katex": "^0.16.9",
+    "latex2vue": "^2.2.2",
     "markdown-it-mathjax3": "^4.3.2",
     "mathjax": "^3.2.2",
     "vue": "^3.3.8"

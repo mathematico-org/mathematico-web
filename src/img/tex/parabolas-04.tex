@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$x$},
+		ylabel={$y$},
+    ymin = -3,
+    ymax = 4,
+	]
+		\addplot[thick,color=mygreen,domain=-.5:4,samples=100]{(x - 1)*(x - 3)};
+		\addplot[thick,color=mypurple,domain=-4:1,samples=100]{(-2 - x)*(x + 1) + 2};
+		\node[label={90:{$P$}}] at (axis cs:-1.5,2.25) {$\bullet$};
+		\node[label={270:{$Q$}}] at (axis cs:2,-1) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

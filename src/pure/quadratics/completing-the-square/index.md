@@ -30,7 +30,7 @@ p(x - q)^2 + r
 $$
 
 Doing this allows us to solve _any_ quadratic equation, not just ones that can
-be factorised.
+be easily factorised.
 
 ## Example
 

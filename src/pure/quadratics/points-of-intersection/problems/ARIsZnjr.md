@@ -32,7 +32,7 @@ Consider the equation
 $$
 \begin{aligned}
 px^2 + 2qx + p & = 2q + px - qx^2 \\
-(p + q)x^2 + (2q - p)x + p - 2q
+(p + q)x^2 + (2q - p)x + p - 2q & = 0
 \end{aligned}
 $$
 

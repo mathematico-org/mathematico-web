@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$x$},
+		ylabel={$y$},
+    ymin=-1,
+    ymax=6,
+    xmax=6
+	]
+		\addplot[thick,color=mygreen,domain=-3:8,samples=100]{x - 0.25};
+		\addplot[thick,color=mypurple,domain=-3:7,samples=100]{x^2 - 2*x + 2};
+		\node[label={315:{$C$}}] at (axis cs:1.5,1.25) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

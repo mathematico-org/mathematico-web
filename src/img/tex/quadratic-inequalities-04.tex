@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.2,
+		xlabel={$t$},
+		ylabel={$T$},
+    ymax=90,
+    ymin=-5,
+    xmin=-2,
+    xmax=60
+	]
+		\addplot[thick,color=mypurple,domain=0:60,samples=100]{(-x^2/32 + 2*x + 45)};
+		\node[label={90:{$24$}}] at (axis cs:24,75) {$\bullet$};
+		\node[label={90:{$40$}}] at (axis cs:40,75) {$\bullet$};
+    \draw[thick,dashed,color=mygreen] (0,75) -- (50,75);
+    \node[right,color=mygreen] at (50,75) {$T=75$};
+    \node[right,color=mypurple] at (2,45) {$T=45 + 2t - \frac{1}{32}t^2$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

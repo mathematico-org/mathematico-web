@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$q$},
+		ylabel={$q^2 - 8q + 8$},
+    ymin = -10,
+	]
+		\addplot[thick,color=mygreen,domain=-1:9,samples=100]{x^2 - 8*x  + 8};
+		\node[label={90:{$4 - 2\sqrt{2}$}}] at (axis cs:1.17,0) {$\bullet$};
+		\node[label={90:{$4 + 2\sqrt{2}$}}] at (axis cs:6.83,0) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

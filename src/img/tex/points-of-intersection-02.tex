@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$x$},
+		ylabel={$y$},
+    ymin=-1,
+    ymax=6,
+    xmax=6
+	]
+		\addplot[thick,color=mygreen,domain=-3:8,samples=100]{x + 2};
+		\addplot[thick,color=mypurple,domain=-3:7,samples=100]{x^2 - 2*x + 2};
+		\node[label={180:{$A(0,2)$}}] at (axis cs:0,2) {$\bullet$};
+		\node[label={0:{$B(3,5)$}}] at (axis cs:3,5) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

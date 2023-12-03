@@ -17,6 +17,8 @@ problems:
 
 # {{ $frontmatter.title }}
 
+## Notes
+
 Suppose we want to find the values of $x$ which satisfy the quadratic equation
 
 $$

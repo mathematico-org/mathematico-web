@@ -43,6 +43,7 @@
  *   in custom container, badges, etc.
  * -------------------------------------------------------------------------- */
 @import '../../node_modules/katex/dist/katex.min.css';
+@import '../../node_modules/latex2js/latex2js.css';
 
 :root {
   --vp-c-default-1: var(--vp-c-gray-1);

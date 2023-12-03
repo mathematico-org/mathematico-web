@@ -17,6 +17,8 @@ problems:
 
 # {{$frontmatter.title}}
 
+## Notes
+
 Sometimes, our quadratics can look a little bit trickier. If they are of the
 form
 

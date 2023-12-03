@@ -21,7 +21,6 @@ async function fetchRudiment() {
   rudiment.fetching = true
   const data = await rudimentService.get(props.id)
   Object.assign(rudiment, data)
-  console.log(rudiment)
   rudiment.fetching = false
 }
 

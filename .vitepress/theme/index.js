@@ -24,8 +24,5 @@ export default {
     app.component('Vimeo', Vimeo)
     app.component('AnswerInput', AnswerInput)
     app.directive('katex', vKatex)
-    app.mounted = () => {
-      ;() => console.log('MOUNTED!')
-    }
   }
 }

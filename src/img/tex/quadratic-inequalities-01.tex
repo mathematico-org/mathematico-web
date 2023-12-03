@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$x$},
+		ylabel={$y$},
+    ymin = -6,
+    ymax = 5,
+	]
+		\addplot[thick,color=mygreen,domain=-1:6,samples=100]{x^2 - 5*x  + 1};
+		\node[label={45:{$0.209 \ldots$}}] at (axis cs:0.209,0) {$\bullet$};
+		\node[label={135:{$4.79 \ldots$}}] at (axis cs:4.79,0) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

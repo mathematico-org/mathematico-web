@@ -35,9 +35,7 @@ $$
 
 ::: details Solution
 
-First, we note that the parabola is convex, so it opens upwards.
-
-Next, consider the discriminant of
+FConsider the discriminant of
 
 $$
 \begin{aligned}
@@ -57,9 +55,11 @@ $$
 \end{aligned}
 $$
 
-The discriminant is negative, so the parabola and line never intersect. Since
-the parabola is convex, this must mean the parabola lies entirely above the
-line. (If any point on the parabola were below the line, they would have to
-intersect eventually.)
+The discriminant is negative, so the parabola and line never intersect.
+
+Now let's let $x = 0$. For the parabola, $y = 2$ and for the line $y = -8$.
+Therefore the point on the parabola lies above the point on the line. But since
+the parabola and line never intersect, then all points on the parabola must lie
+above the line.
 
 :::

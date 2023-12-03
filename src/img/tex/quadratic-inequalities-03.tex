@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.2,
+		xlabel={$k$},
+		ylabel={$y = k^2 - 4k - 4$},
+    ymin=-5,
+    ymax=4
+	]
+		\addplot[thick,color=mypurple,domain=-1.5:6.5,samples=100]{0.5*(x^2 - 4*x - 4)};
+		\node[label={90:{$2 - 2\sqrt{2}$}}] at (axis cs:-0.828,0) {$\bullet$};
+		\node[label={90:{$2 + 2\sqrt{2}$}}] at (axis cs:4.83,0) {$\bullet$};
+		\node[label={90:{$2$}}] at (axis cs:2,0) {$\bullet$};
+    \fill[opacity=0.1] (-1.5, -5) rectangle (2, 4);
+    \fill[opacity=0.1] (4.84, -5) rectangle (6.5, 4);
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}
