@@ -1,0 +1,38 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+
+    \draw[<->, thick, gray] (-1, 0) -- (11, 0);
+
+    \draw[
+      color=mygreen,
+      fill=mygreen,
+      opacity=0.25
+    ] (1, -.5) rectangle (2.5, .5);
+
+    \draw[
+      color=mygreen,
+      fill=mygreen,
+      opacity=0.25
+    ] (5, -.5) rectangle (8.5, .5);
+
+    \draw[thick] (0.5, -.5) rectangle (1.5, .5);
+    \draw[thick] (2, -.5) rectangle (3.5, .5);
+    \draw[thick] (6, -.5) rectangle (7.5, .5);
+    \draw[thick] (9, -.5) rectangle (9.5, .5);
+
+    \node[] at (1, .25) {f1};
+    \node[] at (2.75, .25) {f2};
+    \node[] at (6.75, .25) {f3};
+    \node[] at (9.25, .25) {f4};
+
+    \draw[thick, ->] (0.25, -1.5) -- (0.5, -.5);
+    \node[below] at (0.25, -1.5) {f1.start};
+
+    \draw[thick, ->] (1.75, -1.5) -- (1.5, -.5);
+    \node[below] at (1.75, -1.5) {f1.end};
+
+	\end{tikzpicture}
+\end{document}

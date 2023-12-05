@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+
+    \draw[<->, thick, gray] (-1, 0) -- (11, 0);
+
+    \draw[
+      color=mygreen,
+      fill=mygreen,
+      opacity=0.25
+    ] (1, -.5) rectangle (2.5, .5);
+
+    \node[] at (1.75, .25) {batch};
+
+    \draw[
+      color=mygreen,
+      fill=mygreen,
+      opacity=0.25
+    ] (5, -.5) rectangle (8.5, .5);
+
+    \node[below] at (.5, -1.5) {batch.start};
+    \draw[->, black, thick] (.5, -1.5) -- (1,-.5);
+
+    \node[below] at (3, -1.5) {batch.end};
+    \draw[->, black, thick] (3, -1.5) -- (2.5,-.5);
+
+	\end{tikzpicture}
+\end{document}
