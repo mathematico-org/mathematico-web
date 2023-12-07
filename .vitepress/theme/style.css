@@ -159,3 +159,7 @@ img {
 .dark .rudiment svg {
   filter: invert(1);
 }
+
+.dark .rudiment .katex svg {
+  filter: none;
+}

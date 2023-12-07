@@ -17,6 +17,8 @@ $$
 y = 4x - 8
 $$
 
+<AnswerInput :answer="$frontmatter.answer" />
+
 ::: details Hint
 
 Is the parabola convex or concave?

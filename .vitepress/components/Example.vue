@@ -6,7 +6,9 @@ const { frontmatter } = useData()
 </script>
 
 <template>
-  <slot></slot>
+  <div class="tip custom-block">
+    <slot></slot>
+  </div>
 
   <Vimeo :id="frontmatter.vimeo" />
 </template>

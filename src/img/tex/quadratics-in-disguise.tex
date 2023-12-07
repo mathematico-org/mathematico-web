@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$u$},
+		ylabel={$u^2 - 6u + 8$},
+    ymin = -3,
+	]
+		\addplot[thick,color=mygreen,domain=-.2:6,samples=100]{x^2 - 6*x + 8};
+		\node[label={90:{$2$}}] at (axis cs:2,0) {$\bullet$};
+		\node[label={90:{$4$}}] at (axis cs:4,0) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

@@ -37,7 +37,7 @@ function burstConfetti() {
       type="text"
       placeholder="Check your answer..."
     />
-    <button class="VPButton medium brand">Submit</button>
+    <button class="composite">Submit</button>
   </form>
 </template>
 
