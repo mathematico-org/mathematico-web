@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { getCourseSidebar } from './lib/sidebar'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Mathematico',
   description: 'Learn and revise A Level Maths',

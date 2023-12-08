@@ -162,8 +162,8 @@
 }
 
 .dark .vp-doc img,
-.dark .vp-doc svg {
-  filter: invert(1);
+.dark .rudiment svg {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 .dark .rudiment .katex svg {
