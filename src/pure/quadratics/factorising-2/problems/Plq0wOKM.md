@@ -22,6 +22,8 @@ $$
 abcde
 $$
 
+<AnswerInput :answer="$frontmatter.answer" />
+
 ::: details Hint
 
 You can remove a common factor of $5x^5$ before you start.

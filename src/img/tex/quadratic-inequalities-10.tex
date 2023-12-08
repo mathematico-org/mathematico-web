@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$b$},
+		ylabel={$(b - a)(b - a + 8)$},
+    ymin = -24,
+	]
+		\addplot[thick,color=mygreen,domain=-4:6,samples=100]{(x + 2)*(x - 4)};
+		\node[label={90:{$a - 8$}}] at (axis cs:-2,0) {$\bullet$};
+		\node[label={90:{$a$}}] at (axis cs:4,0) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

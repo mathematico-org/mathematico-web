@@ -1,7 +1,7 @@
 ---
 id: xNRAJIEh
 vimeo: 441378182
-answer: 15.5
+answer: -85
 ---
 
 The quadratic equation
@@ -10,24 +10,26 @@ $$
 x^2 + kx + 5 = 0
 $$
 
-has real roots.
+has at least one solution.
 
 Find the range of possible values of $k.$
 
-If your solution is of the form
+Use the table below to find your answer based on your solution set.
 
-- $\alpha < k < \beta$, give $\alpha^2 + \beta$
-- $\alpha \leq k \leq \beta$, give $\alpha^3 + \beta$
-- $k < \alpha \cup k > \beta$, give $\alpha + \beta^2$
-- $k \leq \alpha \cup k \geq \beta$, give $\alpha + \beta^3$
+|           Solution set            |       Answer       |
+| :-------------------------------: | :----------------: |
+|       $\alpha < k < \beta$        | $\alpha^2 + \beta$ |
+|    $\alpha \leq k \leq \beta$     | $\alpha^3 + \beta$ |
+|    $k < \alpha$ or $k > \beta$    | $\alpha + \beta^2$ |
+| $k \leq \alpha$ or $k \geq \beta$ | $\alpha + \beta^3$ |
 
-to $3$ significant figures.
+Give your answer to the nearest integer.
 
 <AnswerInput :answer="$frontmatter.answer" />
 
 ::: details Hint
 
-Real roots means there is at least one solution. Consider the discriminant.
+Consider the discriminant.
 
 :::
 
@@ -35,6 +37,31 @@ Real roots means there is at least one solution. Consider the discriminant.
 
 $$
 b^2 - 4ac \geq 0
+$$
+
+:::
+
+::: details Solution
+
+Since the equation has real roots (meaning at least one solution), we know the
+discriminant satisfies
+
+$$
+\begin{aligned}
+b^2 - 4ac & \geq 0 \\
+k^2 - 4(1)(5) & \geq 0 \\
+k^2 - 20 & \geq 0
+\end{aligned}
+$$
+
+We draw a sketch
+
+![parabola](/img/learn/quadratic-inequalities-06.svg)
+
+From the sketch, we see that the solution is
+
+$$
+k \leq -2\sqrt{5} \quad \text{or} \quad k \geq 2\sqrt{5}
 $$
 
 :::

@@ -6,8 +6,10 @@ tags:
 answer: 1232
 ---
 
-Food safety precautions state that, when food is being reheated, it should
-**either**:
+# Problem 3 <Badge text="Modelling" />
+
+Food safety precautions state that, when a certain food is being reheated, it
+should **either**:
 
 - reach a temperature of above $75^{\circ}\text{C}$ for at least $30$ seconds
 
@@ -24,12 +26,12 @@ $$
 where $T$ is the core temperature of the food product, and $t$ is time in
 seconds.
 
-Determine whether this process should be considered safe, or whether the process
-needs to be altered, explaining your answer.
+1. Determine whether this process should be considered safe, or whether the
+   process needs to be altered, explaining your answer.
 
-Let $\delta$ equal the duration for which the temperature of the product is
-above $75^{\circ}\text{C}$, and let the maximum temperature of the product be
-$\theta.$
+1. Let $\delta$ equal the duration for which the temperature of the product is
+   above $75^{\circ}\text{C}$, and let the maximum temperature of the product be
+   $\theta.$
 
 Give the value of $\delta \theta$.
 
@@ -86,7 +88,7 @@ Let's make a sketch:
 ![rectangle](/img/learn/quadratic-inequalities-04.svg)
 
 Looking at the sketch, we see that the temperature is above $75$ for
-$40 - 25 = 16$ seconds.
+$40 - 24 = 16$ seconds.
 
 By symmetry, the maximum temperature would occur at the midpoint of $24$ and
 $40$, which is $t = 32$, giving

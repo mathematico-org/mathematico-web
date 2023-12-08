@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$k$},
+		ylabel={$k^2 - 20$},
+    ymin = -24,
+	]
+		\addplot[thick,color=mypurple,domain=-6:6,samples=100]{x^2 - 20};
+		\node[label={90:{$-2\sqrt{5}$}}] at (axis cs:-4.47,0) {$\bullet$};
+		\node[label={90:{$2\sqrt{5}$}}] at (axis cs:4.47,0) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

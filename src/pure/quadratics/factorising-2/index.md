@@ -26,7 +26,7 @@ $$
 ax^2 + bx + c = 0
 $$
 
-where $a \neq 0$ they are harder to factorise. For these harder quadratics,
+where $a \neq 1$ they are harder to factorise. For these harder quadratics,
 we're going to learn a method called _splitting the middle_.
 
 As before, it is important to get $0$ on one side of the equation before we

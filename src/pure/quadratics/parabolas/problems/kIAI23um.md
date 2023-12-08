@@ -38,6 +38,8 @@ $$
 \sqrt{24xy}
 $$
 
+<AnswerInput :answer="$frontmatter.answer" />
+
 ::: details Hint
 
 Overall, the diagram for this problem should look like this:

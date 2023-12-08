@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$k$},
+		ylabel={$k^2 - 6k + 1$},
+    ymin = -10,
+	]
+		\addplot[thick,color=mypurple,domain=-1:7,samples=100]{x^2 - 6*x + 1};
+		\node[label={90:{$3-2\sqrt{2}$}}] at (axis cs:0.172,0) {$\bullet$};
+		\node[label={90:{$3+2\sqrt{2}$}}] at (axis cs:5.83,0) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

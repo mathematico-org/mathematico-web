@@ -141,22 +141,28 @@
 
 /* CUSTOM */
 
-.vp-doc li {
+.vp-doc ol li {
   margin-left: 1rem;
 }
 
-.vp-doc li::marker {
+.vp-doc ol li::marker {
   content: '(' counter(list-item, lower-alpha) ')  ';
   margin-right: 1rem;
   padding-right: 1rem;
 }
 
-img {
+.vp-doc table {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vp-doc img {
   margin: auto;
 }
 
-.dark img,
-.dark .rudiment svg {
+.dark .vp-doc img,
+.dark .vp-doc svg {
   filter: invert(1);
 }
 

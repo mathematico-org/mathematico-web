@@ -8,7 +8,7 @@ In the image below, $P$ and $Q$ each have a $y$ coordinate of $3$.
 
 ![Triangle drawn in parabola](/img/learn/quad-8.svg)
 
-Given that the parabola has equation
+The parabola has equation
 
 $$
 y + 9 = x^2 + 4x

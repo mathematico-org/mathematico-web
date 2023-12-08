@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{mathematico}
+
+\begin{document}
+	\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = center,
+		ticks=none,
+		scale=1.5,
+		xlabel={$m$},
+		ylabel={$m^2 - 4$},
+    ymin = -6,
+	]
+		\addplot[thick,color=myorange,domain=-4:4,samples=100]{x^2 - 4};
+		\node[label={90:{$-2$}}] at (axis cs:-2,0) {$\bullet$};
+		\node[label={90:{$2$}}] at (axis cs:2,0) {$\bullet$};
+
+	\end{axis}
+
+	\end{tikzpicture}
+\end{document}

@@ -14,14 +14,16 @@ has exactly two real solutions.
 
 Find the range of possible values of $q$.
 
-If your solution is of the form
+Use the table below to find your answer based on your solution set.
 
-- $\alpha < q < \beta$, give $\alpha^2 + \beta$
-- $\alpha \leq q \leq \beta$, give $\alpha^3 + \beta$
-- $q < \alpha \cup q > \beta$, give $\alpha + \beta^2$
-- $q \leq \alpha \cup q \geq \beta$, give $\alpha + \beta^3$
+|           Solution set            |       Answer       |
+| :-------------------------------: | :----------------: |
+|       $\alpha < q < \beta$        | $\alpha^2 + \beta$ |
+|    $\alpha \leq q \leq \beta$     | $\alpha^3 + \beta$ |
+|    $q < \alpha$ or $q > \beta$    | $\alpha + \beta^2$ |
+| $q \leq \alpha$ or $q \geq \beta$ | $\alpha + \beta^3$ |
 
-to $3$ significant figures.
+Give your answer to $3$ significant figures.
 
 <AnswerInput :answer="$frontmatter.answer" />
 

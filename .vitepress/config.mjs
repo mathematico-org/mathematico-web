@@ -8,6 +8,8 @@ export default defineConfig({
   srcDir: 'src',
   ignoreDeadLinks: true,
 
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+
   markdown: {
     math: true
   },
@@ -21,13 +23,12 @@ export default defineConfig({
   },
 
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
+    logo: '/logo.svg',
     nav: [{ text: 'Pure', link: '/pure/' }],
+    socialLinks: [{ icon: 'github', link: '/' }],
 
     sidebar: {
       '/pure/': getCourseSidebar('pure')
-    },
-
-    socialLinks: [{ icon: 'github', link: '/' }]
+    }
   }
 })
