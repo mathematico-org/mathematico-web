@@ -6,6 +6,9 @@ hero:
   name: 'Mathematico'
   text: 'Learn and revise A Level Maths'
   tagline: My great project tagline
+  image:
+    src: '/logo.svg'
+    alt: Mathematico
   actions:
     - theme: brand
       text: Markdown Examples
