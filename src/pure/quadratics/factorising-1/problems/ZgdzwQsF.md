@@ -4,7 +4,7 @@ vimeo: 574007677
 answer: 114
 ---
 
-# Problem 7
+### Problem 7
 
 Find the area of the below trapezium:
 

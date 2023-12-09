@@ -4,7 +4,7 @@ vimeo: 573990473
 answer: 600
 ---
 
-# Problem 1
+### Problem 1
 
 Solve the equations
 

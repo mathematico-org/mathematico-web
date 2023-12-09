@@ -4,6 +4,8 @@ vimeo: 431923430
 answer: -1050
 ---
 
+### Problem 4
+
 The expression
 
 $$

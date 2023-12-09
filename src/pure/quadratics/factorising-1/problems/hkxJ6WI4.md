@@ -4,7 +4,7 @@ vimeo: 574014063
 answer: 15625
 ---
 
-# Problem 8
+### Problem 8
 
 The equation
 

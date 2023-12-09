@@ -4,6 +4,8 @@ vimeo: 431923487
 answer: 97
 ---
 
+### Problem 1
+
 Factorise the following quadratic expressions:
 
 1.  $x^2 - 2kx + k^2$

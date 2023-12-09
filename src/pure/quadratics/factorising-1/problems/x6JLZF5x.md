@@ -4,7 +4,7 @@ vimeo: 432527680
 answer: 4
 ---
 
-# Problem 6
+### Problem 6
 
 A right-angled triangle has a hypotenuse of length $2x - 3.$ The other two sides
 have lengths of $x$ and $x-1.$

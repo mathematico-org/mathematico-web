@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: 'Mathematico'
-  text: 'Learn and revise A Level Maths'
-  tagline: My great project tagline
+  text: 'Learn and revise'
+  tagline: Everything you need to ace your exams
   image:
     src: '/logo.svg'
     alt: Mathematico
@@ -18,10 +18,10 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Generated exercises
+    details: Keep practising until you have every skill totally dialled
+  - title: 1000s of problems
+    details: Challenging problems with hints and solutions to get you exam-ready
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---

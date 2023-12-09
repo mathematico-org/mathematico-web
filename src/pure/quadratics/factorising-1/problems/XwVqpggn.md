@@ -4,7 +4,7 @@ vimeo: 111
 answer: 126
 ---
 
-# Problem 10
+### Problem 10
 
 The table below is called a _magic square_ because, if you add together the
 numbers in any column, row or diagonal you get the same number.

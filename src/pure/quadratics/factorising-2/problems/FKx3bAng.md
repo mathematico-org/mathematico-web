@@ -4,6 +4,8 @@ vimeo: 432527931
 answer: 452
 ---
 
+### Problem 2
+
 Solve the equations
 
 1.  $2x^3 - 2x^2 - 12x = 0$

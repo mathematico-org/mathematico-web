@@ -5,6 +5,8 @@ tags:
   - proof
 ---
 
+### Problem 9 <Badge text="proof" />
+
 Let $p,q \in \mathbb{N}$ be distinct prime numbers.
 
 Prove that

@@ -141,6 +141,8 @@
 
 /* CUSTOM */
 
+/* lists */
+
 .vp-doc ol li {
   margin-left: 1rem;
 }
@@ -151,11 +153,15 @@
   padding-right: 1rem;
 }
 
+/* tables */
+
 .vp-doc table {
   display: table;
   margin-left: auto;
   margin-right: auto;
 }
+
+/* images */
 
 .vp-doc img {
   margin: auto;

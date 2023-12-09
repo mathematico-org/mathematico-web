@@ -4,6 +4,8 @@ vimeo: 111
 answer: -252
 ---
 
+### Problem 3
+
 The solutions of
 
 $$

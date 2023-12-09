@@ -23,7 +23,27 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/logo.svg',
-    nav: [{ text: 'Pure', link: '/pure/' }],
+
+    nav: [
+      {
+        text: 'Learn',
+        items: [
+          {
+            text: 'Pure',
+            link: '/pure/'
+          }
+        ]
+      },
+      {
+        text: 'Problems',
+        link: '/problems/'
+      },
+      {
+        text: 'Past papers',
+        link: '/past-papers/'
+      }
+    ],
+
     socialLinks: [{ icon: 'github', link: '/' }],
 
     sidebar: {

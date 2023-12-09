@@ -6,7 +6,7 @@ tags:
   - modelling
 ---
 
-# Problem 5
+### Problem 5 <Badge text="modelling" />
 
 A window is made from a wooden frame of thickness $1-x$ and $9$ square glass
 panes of width $10+x$, where $0 < x < 1$.

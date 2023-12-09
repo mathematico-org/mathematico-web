@@ -4,6 +4,8 @@ vimeo: 111
 answer: 424
 ---
 
+### Problem 10
+
 There are $16$ doughnuts on a table. Some of them have a chocolate filling, and
 some of them have a raspberry filling, and it is impossible to tell which one is
 which without eating them!

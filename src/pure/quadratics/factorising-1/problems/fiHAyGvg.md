@@ -4,7 +4,7 @@ vimeo: 111
 answer: 2393
 ---
 
-# Problem 3
+### Problem 3
 
 The solutions of the equation
 

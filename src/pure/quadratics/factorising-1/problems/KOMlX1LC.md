@@ -4,7 +4,7 @@ vimeo: 573996254
 answer: 41600
 ---
 
-# Problem 2
+### Problem 2
 
 1.  Expand and completely factorise the expression
 

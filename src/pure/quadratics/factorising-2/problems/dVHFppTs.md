@@ -6,6 +6,8 @@ tags:
   - modelling
 ---
 
+### Problem 8 <Badge text="modelling" />
+
 The image below shows a circular piece of grass surrounded by a concrete path.
 The width of the path is equal to $2\text{m}$
 

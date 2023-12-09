@@ -4,6 +4,8 @@ vimeo: 431923191
 answer: 9.42
 ---
 
+### Problem 5 <Badge text="modelling" />
+
 A cylinder has a radius $r$ and a height given by
 
 $$

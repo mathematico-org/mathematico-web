@@ -4,7 +4,7 @@ vimeo: 574025189
 answer: 28
 ---
 
-# Problem 9
+### Problem 9
 
 From youngest to oldest, the children in a family are Alfie, Beth, and Cyril.
 Alfie is two years younger than Beth. In two years' time, Cyril will be twice as
