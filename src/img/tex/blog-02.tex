@@ -2,9 +2,9 @@
 \usepackage{mathematico}
 
 \begin{document}
-	\begin{tikzpicture}
+\begin{tikzpicture}[scale=1.25, transform shape]
 
-    \draw[<->, thick, gray] (-1, 0) -- (11, 0);
+    \draw[<->, >=latex, thick, gray, line width=1.5pt] (-1, 0) -- (11, 0);
 
     \draw[
       color=mygreen,
@@ -21,10 +21,10 @@
     ] (5, -.5) rectangle (8.5, .5);
 
     \node[below] at (.5, -1.5) {batch.start};
-    \draw[->, black, thick] (.5, -1.5) -- (1,-.5);
+    \draw[->, black, thick, >=latex] (.5, -1.5) -- (1,-.5);
 
     \node[below] at (3, -1.5) {batch.end};
-    \draw[->, black, thick] (3, -1.5) -- (2.5,-.5);
+    \draw[->, black, thick, >=latex] (3, -1.5) -- (2.5,-.5);
 
 	\end{tikzpicture}
 \end{document}

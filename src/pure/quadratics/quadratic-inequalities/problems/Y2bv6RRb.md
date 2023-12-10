@@ -6,7 +6,7 @@ tags:
 answer: 1232
 ---
 
-# Problem 3 <Badge text="Modelling" />
+### Problem 3 <Badge text="modelling" />
 
 Food safety precautions state that, when a certain food is being reheated, it
 should **either**:

@@ -2,7 +2,8 @@
 \usepackage{mathematico}
 
 \begin{document}
-	\begin{tikzpicture}[scale=1.25, transform shape]
+\begin{tikzpicture}[scale=1.25, transform shape]
+    \path[use as bounding box] (-2, -1) rectangle (12, 1);
 
     \draw[<->, >=latex, thick, gray, line width=1.5pt] (-1, 0) -- (11, 0);
 
@@ -23,16 +24,17 @@
     \draw[thick] (6, -.5) rectangle (7.5, .5);
     \draw[thick] (9, -.5) rectangle (9.5, .5);
 
+    \draw[thick, dashed, <->, >=latex] (-.5, -.5) -- (.45, -.5) -- (.45, .5) -- (-.5, .5);
+    \draw[thick, dashed] (1.55, -.5) rectangle (1.95, .5);
+    \draw[thick, dashed] (3.55, -.5) rectangle (5.95, .5);
+    \draw[thick, dashed] (7.55, -.5) rectangle (8.95, .5);
+    \draw[thick, dashed, <->, >=latex] (10.5, -.5) -- (9.55, -.5) -- (9.55, .5) -- (10.5, .5);
+
     \node[] at (1, .25) {f1};
     \node[] at (2.75, .25) {f2};
     \node[] at (6.75, .25) {f3};
     \node[] at (9.25, .25) {f4};
-
-    \draw[thick, ->, >=latex] (0.25, -1.5) -- (0.5, -.5);
-    \node[below] at (0.25, -1.5) {f1.start};
-
-    \draw[thick, ->, >=latex] (1.75, -1.5) -- (1.5, -.5);
-    \node[below] at (1.75, -1.5) {f1.end};
+    \node[] at (4.75, .25) {identity};
 
 	\end{tikzpicture}
 \end{document}
