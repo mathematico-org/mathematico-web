@@ -47,7 +47,8 @@ export default defineConfig({
     socialLinks: [{ icon: 'github', link: '/' }],
 
     sidebar: {
-      '/pure/': getCourseSidebar('pure')
+      '/pure/': getCourseSidebar('pure'),
+      '/blog/': [{ text: 'Integrating e', link: '/blog/240923-integrating-e' }]
     }
   }
 })
