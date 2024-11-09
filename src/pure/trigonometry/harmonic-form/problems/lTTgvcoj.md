@@ -12,7 +12,7 @@ vimeo: 111
     can be expressed in the form
 
     $$
-    2n \cos\left( \theta + \frac{\pi}{n} \right)
+    n \cos\left( \theta + \frac{\pi}{n} \right)
     $$
 
     for some $n \in \mathbb{N},$ find the value of $n.$
